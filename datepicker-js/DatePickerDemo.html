@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DatePicker示例</title>
+<!--datepicker插件的CSS链接-->
+<link rel="stylesheet" type="text/css" href="Plugins/css/start/jquery-ui-1.10.3.custom.css">
+<!--jQuery库的引用-->
+<script type="text/javascript" src="Plugins/js/jquery-1.9.1.js"></script>
+<!--jQuery UI自定义下载库的引用-->
+<script type="text/javascript" src="Plugins/js/jquery-ui-1.10.3.custom.js"></script>
+<!--添加简体中文的日历-->
+<script type="text/javascript" src="Plugins/js/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+<style type="text/css">
+   body,input{
+	   font-size:9pt;
+   }
+</style>
+<script type="text/javascript">
+
+   $(document).ready(function(e) {
+	    //指定所有的DatePicker的默认设置
+/*		$.datepicker.setDefaults({
+		showOn: "both",
+		buttonImageOnly: true,
+		buttonImage: "calendar.gif",
+		buttonText: "Calendar",
+		dateFormat:"yy-mm-dd"
+		});	   
+*/	   
+	   
+	//调用datepicker插件在鼠标单击时显示日期选择框
+     $("#idDate").datepicker();
+	  
+	 //设置文本框的日期选择效果
+	 $( "#idDateIcon" ).datepicker({
+    	 //显示文本按钮
+		showOn: "button",
+		//文本按钮图标
+		buttonImage: "images/calendar.gif",
+		//仅显示图标，而不用在按钮上显示图标
+		buttonImageOnly: true,
+		//指定DatePicker的日期样式
+		dateFormat:"yy-mm-dd"
+	 });	 
+	 
+	 
+	 $( "#idMultiMonths" ).datepicker({
+	   //同时显示3个月份的日期选择器
+	   numberOfMonths: 3,
+	   //在日期选择框底部显示按钮面板
+	   showButtonPanel: true,	
+	   showAnim:"slideDown"
+	 });	 
+	 //设置日历语言区域为简体中文
+     $( "#idMultiMonths" ).datepicker( "option",$.datepicker.regional["zh-CN"] );	 
+	 
+	 
+	 $( "#idDateRange" ).datepicker({
+	   //同时显示3个月份的日期选择器
+	   numberOfMonths: 3,
+	   //在日期选择框底部显示按钮面板
+	   showButtonPanel: true,	
+	   minDate: new Date(2013,9-1,23),  //指定起始限制日期
+	   maxDate: "+2M", 	    	         //指定结束限制日期
+	   showAnim:"slideDown"              //设置日期选择器的动画显示
+	 });	 
+	 //设置日历语言区域为简体中文
+     $( "#idDateRange" ).datepicker( "option",$.datepicker.regional["zh-CN"] );	 	 
+	 	 
+	  	  
+});
+</script>
+</head>
+<body>
+<label for="idDate">选择一个日期：</label>
+<input type="text" name="idDate" id="idDate">
+<div style="margin-top:50px">
+<label for="idDate">使用图标选择，并更改日期格式：</label>
+<input type="text" name="idDateIcon" id="idDateIcon">
+</div>
+
+<div style="margin-top:50px">
+<label for="idMultiMonths">同时显示多个月份：</label>
+<input type="text" name="idMultiMonths" id="idMultiMonths">
+</div>
+
+<div style="margin-top:50px">
+<label for="idDateRange">设置日期限制：</label>
+<input type="text" name="idDateRange" id="idDateRange">
+</div>
+</body>
+</html>

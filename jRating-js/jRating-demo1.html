@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>五星评级插件JRating</title>
+		<!-- CSS文件 -->
+		<link rel="stylesheet" type="text/css" href="lib/css/jRating.jquery.css" media="screen" />
+		<!-- jQuery文件 -->
+		<script type="text/javascript" src="lib/js/jquery.js"></script>
+		<!--jRating插件文件-->
+		<script type="text/javascript" src="lib/js/jRating.jquery.js"></script>
+	</head>
+	<body>
+		<div class="example">
+			<div class="start" data-average="0" data-id="1"></div>
+			<div class="start" data-average="0" data-id="2"></div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".start").jRating({
+					step:true,
+					length:20,
+			        canRateAgain:true,
+			        nbRates:20
+//					onSuccess:function(){
+//						alert('成功！评分！');
+//					}
+				});
+			})
+		</script>
+	</body>
+</html>
